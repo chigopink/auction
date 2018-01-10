@@ -1,3 +1,5 @@
 <p>
-  stars works!
+  <span *ngFor="let star of stars" class="glyphicon glyphicon-star glyphicon-star-empty"
+  [class.glyphicon-star-empty]="star"></span>
+  <span>{{ratting}}星</span>
 </p>
