@@ -27,7 +27,7 @@ export class SeminarListComponent implements OnInit {
           dst: '01-0401-00000001',
           type: 0x0002,
           cmd: 'seminar.getList',
-          sess: 'bbd35f41e5533f70e3dc4a5bb523cc9d',
+          sess: '000_test_use_only_create_by_jack',
           seq: 0,
           ver: 1000,
           body:{
@@ -46,8 +46,13 @@ export class SeminarListComponent implements OnInit {
       },
     }
     this.httpInterceptorService.request(parms).then(data => {
-      let a=data.data.content;
-      console.log(a);
+      if(data.data.content.items){
+        data.data.content.items.forEach(item=>{
+          this.seminarList.push(new Seminar(item.seminarId,item.name))
+        })
+
+
+      }
     })
   }
 
@@ -55,4 +60,9 @@ export class SeminarListComponent implements OnInit {
 export class Seminar{
   private seminarId:string;
   private seminarName:string;
+  constructor(seminarId:string,seminarName:string){
+    this.seminarId = seminarId;
+    this.seminarName = seminarName;
+  }
+
 }
