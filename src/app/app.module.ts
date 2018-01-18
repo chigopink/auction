@@ -10,8 +10,16 @@ import { StarsComponent } from './stars/stars.component';
 import { ProductComponent } from './product/product.component';
 import { CatouselComponent } from './catousel/catousel.component';
 import { SeminarListComponent } from './seminar-list/seminar-list.component';
-import {HttpModule} from "@angular/http";
+import { HttpModule } from "@angular/http";
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { HomeComponent } from './home/home.component';
+import {RouterModule, Routes} from "@angular/router";
+import {FormsModule} from "@angular/forms";
 
+const routeConfig: Routes =[
+  {path:'',component:HomeComponent},
+  {path:'product/:prodTitle',component:ProductDetailComponent}
+]
 
 @NgModule({
   declarations: [
@@ -22,11 +30,15 @@ import {HttpModule} from "@angular/http";
     StarsComponent,
     ProductComponent,
     CatouselComponent,
-    SeminarListComponent
+    SeminarListComponent,
+    ProductDetailComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    FormsModule,
+    RouterModule.forRoot(routeConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
