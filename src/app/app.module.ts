@@ -15,10 +15,14 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { HomeComponent } from './home/home.component';
 import {RouterModule, Routes} from "@angular/router";
 import {FormsModule} from "@angular/forms";
+import { BigdetailComponent } from './bigdetail/bigdetail.component';
+import {HttpInterceptorService} from "./apiServices/httpServices";
 
 const routeConfig: Routes =[
   {path:'',component:HomeComponent},
-  {path:'product/:prodTitle',component:ProductDetailComponent}
+  {path:'product/:prodTitle',component:ProductDetailComponent},
+  {path:'bigList',component:SeminarListComponent},
+  {path:'editBigs/:id',component:BigdetailComponent}
 ]
 
 @NgModule({
@@ -32,7 +36,8 @@ const routeConfig: Routes =[
     CatouselComponent,
     SeminarListComponent,
     ProductDetailComponent,
-    HomeComponent
+    HomeComponent,
+    BigdetailComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,7 @@ const routeConfig: Routes =[
     FormsModule,
     RouterModule.forRoot(routeConfig)
   ],
-  providers: [],
+  providers: [HttpInterceptorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,4 @@
-<ul *ngFor="let seminar of seminarList">
-  <li>会议ID:{{seminar.seminarId}}--会议名称：{{seminar.seminarName}}  </li>
+<ul *ngFor="let big of bigScreenList">
+  <li>大屏ID:{{big.id}}--会议名称：{{big.name}}</li>
+  <a [routerLink]="['/editBigs',big.id]">编辑</a>---<a  (click)="delete(big.id)">删除</a>
 </ul>
