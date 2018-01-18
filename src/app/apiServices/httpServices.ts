@@ -43,7 +43,7 @@ export class HttpInterceptorService {
   public post(url: string, params: any) {
     return this.http.post(url, params)
       .toPromise()
-      .then(res => this.handleSuccess(res))
+      .then(this.handleSuccess)
       .catch(res => this.handleError(res));
   }
 
