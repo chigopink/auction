@@ -12,7 +12,27 @@ export class HttpInterceptorService {
    * @param params
    * @returns {Promise<{success: boolean, msg: string}>|Promise<R>}
    */
-  public request(params: any): any {
+  public request(body: any,cmd): any {
+    let params= {
+      method: 'POST',
+      url: 'http://s2-sdeb.smarket.net.cn/index.php', // 登录URL
+      data: {
+        command: {
+          size: 0,
+          orn: '02-0001-00000001',
+          dst: '01-0401-00000001',
+          type: 0x0002,
+          cmd: cmd,
+          sess: '000_test_use_only_create_by_jack',
+          seq: 0,
+          ver: 1000,
+          body: body,
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        }
+      }
+    }
     // POST请求（参数、返回值类型都是任意类型）
     if (params['method'] == 'post' || params['method'] == 'POST') {
       return this.post(params['url'], params['data']);

@@ -1,4 +1,5 @@
+<a [routerLink]="['/editBigs','']">新增</a>
 <ul *ngFor="let big of bigScreenList">
   <li>大屏ID:{{big.id}}--会议名称：{{big.name}}</li>
-  <a [routerLink]="['/editBigs',big.id]">编辑</a>---<a  (click)="delete(big.id)">删除</a>
+  <a [routerLink]="['/editBigs',big.id]" [queryParams]="big">编辑</a>---<a  (click)="delete(big.id)">删除</a>
 </ul>

@@ -1,6 +1,10 @@
 <div>
-  <h4>编辑</h4>
+  <h2>编辑大屏</h2>
 </div>
 <div>
-
+  <h4 [style.display]="id ? 'block' : 'none'">id:{{bigscreen.id}}</h4>
+  <h4 >名称：<input type="text" [(ngModel)]="bigscreen.name"></h4>
+</div>
+<div>
+  <input type="text" type="button" value="提交" (click)="submit()">
 </div>
